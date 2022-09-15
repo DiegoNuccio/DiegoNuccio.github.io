@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>MOGsite</title>
     <style>
@@ -9,6 +10,7 @@
             padding: 10px;
             font-family: arial;
         }
+
         #all-contents {
             max-width: 800px;
             margin-left: 300px;
@@ -22,7 +24,9 @@
             padding: 10px;
             border: 10px solid skyblue;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
+
         h1 {
             display: flex;
             align-items: center;
@@ -30,13 +34,16 @@
             flex: 1;
             margin: 0;
         }
+
         #nav-ul {
             list-style-image: none;
         }
+
         .nav-li {
             display: inline-block;
             padding: 0 10px;
         }
+
         a {
             text-decoration: none;
             color: rgb(100, 6, 150);
@@ -47,31 +54,39 @@
             margin-top: 20px;
             background: rgb(255, 222, 131);
             display: flex;
-            border: 10px solid rgb(250, 200,130);
+            border: 10px solid rgb(250, 200, 130);
             border-radius: 10px;
         }
+
         .sidebar {
             margin-right: 25px;
             padding: 10px;
         }
+
         .sidebar-img {
             width: 200px;
         }
+
         .content {
             flex: 1;
             padding: 15px;
         }
+
         #interests {
             border: 8px rgb(255, 27, 27) ridge;
             padding: 8px;
         }
-        h2, h3 {
+
+        h2,
+        h3 {
             margin: 0px;
         }
+
         #sidebartxt {
             font-family: 'Courier New', Courier, monospace;
             font-size: 10px;
         }
+
         #WotD {
             border: 4px solid rgb(12, 20, 129);
             border-radius: 4px;
@@ -82,6 +97,7 @@
         }
     </style>
 </head>
+
 <body>
     <!--All content goes here-->
     <div id="all-contents">
@@ -89,10 +105,10 @@
             <h1>Diego's Website (MOGsite)</h1>
             <ul id="nav-ul">
                 <li class="nav-li">
-                  <a href="index.html"> Home </a>
+                    <a href="index.html"> Home </a>
                 </li>
                 <li class="nav-li">
-                  <a href="portfolio.html"> Portfolio </a>
+                    <a href="portfolio.html"> Portfolio </a>
                 </li>
             </ul>
         </nav>
@@ -100,7 +116,8 @@
         <main>
             <!--Sidebar section-->
             <div class="sidebar">
-                <img class="siderbar-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcrUN1ZIPtt9TrkZuI3HIAIOt2thNcwN0HuQ&usqp=CAU">
+                <img class="siderbar-img"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcrUN1ZIPtt9TrkZuI3HIAIOt2thNcwN0HuQ&usqp=CAU">
                 <p clas="siderbar-txt" id="sidebartxt">Marisa Kirisame from Touhou project</p>
             </div>
 
@@ -111,9 +128,9 @@
                 <h2></h2>
                 <p></p>
                 <!-- Interests section -->
-                <div>
+                <div id="interests">
                     <h3>Interests</h3>
-                    <ul id="interests">
+                    <ul>
                         <li>Games</li>
                         <li>Drawing</li>
                         <li>Coding</li>
@@ -124,4 +141,5 @@
         <p id="WotD">Word of the day(s) : Supercalifragilisticexpialidocious </p>
     </div>
 </body>
+
 </html>
