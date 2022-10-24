@@ -223,7 +223,7 @@
             
             asset.body.offset.x += 10 * _direction;
             asset.body.offset.y -= 20;
-            asset.body.y -= 22;
+            asset.body.y -= 50;
             let onUpdate = function (anim, frame) {
                 console.log(frame.index);
                 if (frame.index < 52) {
