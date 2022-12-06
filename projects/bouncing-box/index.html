@@ -103,7 +103,7 @@
 			turn it around!
 			*/
 			function update() {
-				if (positionX >= 1450) {
+				if (positionX >= boardWidth) {
 					speed = speed * -1
 					positionX = positionX + speed;
 					moveBoxTo(positionX);
