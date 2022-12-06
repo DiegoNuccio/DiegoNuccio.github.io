@@ -116,8 +116,13 @@
 				}
 
 				else {
+					if (speed >= 1) {
 					positionX = positionX + speed + dash*2;
 					moveBoxTo(positionX);
+					}
+					else if (speed <= -1) {
+						positionX = positionX + speed + -(dash*2)
+					}
 				}
 
 			};
