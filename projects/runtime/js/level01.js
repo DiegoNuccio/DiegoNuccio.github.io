@@ -5,7 +5,7 @@ var level01 = function (window) {
     var draw = window.opspark.draw;
     var createjs = window.createjs;
 
-    window.opspark.runLevelInGame = function(game) {
+    window.opspark.runLevelInGame = function (game) {
         // some useful constants 
         var groundY = game.groundY;
 
@@ -13,7 +13,7 @@ var level01 = function (window) {
         // behavior of our game
         var levelData = {
             "name": "Robot Romp",
-            "number": 1, 
+            "number": 1,
             "speed": -3,
             "gameItems": [
                 { "type": "sawblade", "x": 400, "y": groundY },
@@ -27,16 +27,28 @@ var level01 = function (window) {
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
+        function createSawBlade(xvalue, yvalue) {
+            // your code to be reused goes here
 
-        
-        
-        
+            var hitZoneSize = 25;
+            var damageFromObstacle = 10;
+            var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            sawBladeHitZone.x = xvalue;
+            sawBladeHitZone.y = yvalue;
+            game.addGameItem(sawBladeHitZone);
+            var obstacleImage = draw.bitmap("img/sawblade.png");
+            sawBladeHitZone.addChild(obstacleImage);
+            obstacleImage.x = -25;
+            obstacleImage.y = -25;
+        }
+        createSawBlade(100,100);
+        createSawBlade(400,200);
         // DO NOT EDIT CODE BELOW HERE
     }
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if((typeof process !== 'undefined') &&
+if ((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports = level01;

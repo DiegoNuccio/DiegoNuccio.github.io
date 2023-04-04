@@ -27,6 +27,7 @@ var background = function (window) {
 
         // ANIMATION VARIABLES HERE:
         var tree;
+        var trees = [];
         var buildings = [];
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -57,7 +58,7 @@ var background = function (window) {
 
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
 
-            for (var i = 0; i < 5; ++i) {
+            for (var i = 0; i < 6; ++i) {
                 var buildingHeight = Math.random() * 400;
                 var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
                 building.x = 200 * i;
@@ -67,11 +68,14 @@ var background = function (window) {
             }
 
             // TODO 4: Part 1 - Add a tree
+            for (var i = 0; i < 3; ++i) {
+                tree = draw.bitmap("img/tree.png");
+                tree.x = 600 * i;
+                tree.y = groundY - 200;
+                background.addChild(tree);
+                trees.push(tree)
+            }
 
-            tree = draw.bitmap("img/tree.png");
-            tree.x = 0;
-            tree.y = groundY - 200;
-            background.addChild(tree);
 
         } // end of render function - DO NOT DELETE
 
@@ -85,16 +89,20 @@ var background = function (window) {
             var groundY = ground.y;
 
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x + 1;
+            for (var i = 0; i < trees.length; i++) {
+                var eachElement2 = trees[i];
+                eachElement2.x = eachElement2.x - 1;
 
-            if (tree.x < -200) {
-                tree.x = canvasWidth;
+                if (eachElement2.x < -200) {
+                    eachElement2.x = canvasWidth;
+                }
+                // code to do something with each element
             }
 
             // TODO 5: Part 2 - Parallax
             for (var i = 0; i < buildings.length; i++) {
                 var eachElement = buildings[i];
-                eachElement.x = eachElement.x + 1;
+                eachElement.x = eachElement.x - 1;
 
                 if (eachElement.x < -200) {
                     eachElement.x = canvasWidth;
