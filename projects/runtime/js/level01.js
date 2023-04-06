@@ -23,13 +23,11 @@ var level01 = function (window) {
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
-        function createSawBlade(xvalue, yvalue) {
-            // your code to be reused goes here
-
+        function createDanmaku(xvalue, yvalue) {
             var hitZoneSize = 25;
             var damageFromObstacle = 10;
             var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
@@ -37,12 +35,14 @@ var level01 = function (window) {
             sawBladeHitZone.y = yvalue;
             game.addGameItem(sawBladeHitZone);
             var obstacleImage = draw.bitmap("img/sawblade.png");
-            sawBladeHitZone.addChild(obstacleImage);
+            var danmaku = draw.circle(26, "LightYellow", "Yellow", 10);
+            sawBladeHitZone.addChild(danmaku);
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         }
-        createSawBlade(100,100);
-        createSawBlade(400,200);
+        createDanmaku(100, 100);
+        createDanmaku(400, groundY);
+
         // DO NOT EDIT CODE BELOW HERE
     }
 };
