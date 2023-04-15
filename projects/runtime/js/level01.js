@@ -17,8 +17,10 @@ var level01 = function (window) {
             "speed": -3,
             "gameItems": [
                 { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
+                { "type": "sawblade", "x": 600, "y": groundY - 60},
                 { "type": "sawblade", "x": 900, "y": groundY },
+                { "type": "reward", "x": 800, "y": groundY - 50 },
+                { "type": "enemy", "x": 600, "y": groundY - 50 },
             ]
         };
         window.levelData = levelData;
@@ -40,9 +42,55 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         }
-        createDanmaku(100, 100);
-        createDanmaku(400, groundY);
 
+        function createFairy(xvalue) {
+            var enemy = game.createGameItem("enemy", 25);
+            var redSquare = draw.rect(50, 50, "Pink");
+            redSquare.x = -25;
+            redSquare.y = -25;
+            enemy.addChild(redSquare);
+            enemy.x = xvalue;
+            enemy.y = groundY - 50;
+            enemy.velocityX = -1;
+            enemy.onPlayerCollision = function () {
+                game.changeIntegrity(-10);
+            };
+            enemy.onProjectileCollision = function () {
+                game.increaseScore(100);
+                enemy.fadeOut();
+            };
+            game.addGameItem(enemy);
+        }
+
+        function createSI(xvalue, ver) {
+            var enemy = game.createGameItem("enemy", 25);
+            var redSquare = draw.rect(50, 50, "Cyan");
+            redSquare.x = -25;
+            redSquare.y = -25;
+            enemy.addChild(redSquare);
+            enemy.x = xvalue;
+            enemy.y = groundY - 50;
+            enemy.velocityX = -1;
+            enemy.onProjectileCollision = function () {
+                game.increaseScore(50);
+                game.changeIntegrity(50);
+                enemy.fadeOut();
+            };
+            game.addGameItem(enemy);
+        }
+
+        for (var i = 0; i < levelData.gameItems.length; i++) {
+            var gameItemObject = levelData.gameItems[i];
+            var firstX = gameItemObject.x;
+            var firstY = gameItemObject.y;
+            if (gameItemObject.type == "sawblade") {
+                createDanmaku(firstX, firstY);
+            } else if (gameItemObject.type == "reward") {
+                createSI(firstX)
+            } else if (gameItemObject.type == "enemy") {
+                createFairy(firstX)
+            }
+        }
         // DO NOT EDIT CODE BELOW HERE
     }
 };
