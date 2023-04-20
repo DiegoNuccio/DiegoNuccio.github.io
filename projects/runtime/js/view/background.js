@@ -40,6 +40,7 @@ var background = function (window) {
             var backgroundFill = draw.rect(canvasWidth, canvasHeight, 'lightyellow');
             background.addChild(backgroundFill);
 
+
             // TODO: 3 - Add a moon and starfield
 
             for (var i = 0; i <= 100; i++) {
@@ -67,6 +68,10 @@ var background = function (window) {
                 buildings.push(building);
             }
 
+            var flooring = draw.rect(canvasWidth, canvasHeight/2 + 10, "Green", "DarkGreen", 1);
+            flooring.y = groundY;
+            background.addChild(flooring);
+
             // TODO 4: Part 1 - Add a tree
             for (var i = 0; i < 6; ++i) {
                 tree = draw.bitmap("img/tree.png");
@@ -76,11 +81,6 @@ var background = function (window) {
                 trees.push(tree)
             }
 
-            var flooring = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
-            flooring.y = groundY;
-            flooring.length = 100;
-            flooring.width = groundY;
-            background.addChild(flooring);
 
         } // end of render function - DO NOT DELETE
 
