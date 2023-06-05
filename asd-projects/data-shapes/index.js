@@ -241,14 +241,14 @@ $(document).ready(function () {
     animationDetails.y += animationDetails.speedY;
     if (
       animationDetails.x + $("#shape").width() + 8 >=
-        $("#shape-container").width() ||
+      $("#shape-container").width() ||
       animationDetails.x < 2
     ) {
       animationDetails.speedX *= -1;
     }
     if (
       animationDetails.y + $("#shape").height() + 4 >=
-        $("#shape-container").height() ||
+      $("#shape-container").height() ||
       animationDetails.y < 2
     ) {
       animationDetails.speedY *= -1;
