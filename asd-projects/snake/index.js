@@ -90,10 +90,10 @@ function moveSnake() {
   for (var i = 1; i <= snake.body; i++) {
     var snakeSquare = snake.body[i];
     
-    var nextSnakeSquare = "???";
-    var nextRow = "???";
-    var nextColumn = "???";
-    var nextDirection = "???";
+    var nextSnakeSquare = snake.body[i + 1];
+    var nextRow = snakeSquare.row + 1;
+    var nextColumn = snakeSquare.column + 1;
+    var nextDirection = snake.body.direction;
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
