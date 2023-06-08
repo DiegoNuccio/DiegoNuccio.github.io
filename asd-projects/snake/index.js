@@ -87,13 +87,13 @@ function moveSnake() {
   column/row properties. 
   
   */
-  for (var i = 1; i <= snake.body; i++) {
+  for (var i = 1; i <= snake.body.length - 1; i++) {
     var snakeSquare = snake.body[i];
     
-    var nextSnakeSquare = snake.body[i + 1];
-    var nextRow = snakeSquare.row + 1;
-    var nextColumn = snakeSquare.column + 1;
-    var nextDirection = snakeSquare.body.direction;
+    var nextSnakeSquare = snake.body[i - 1];
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = nextSnakeSquare.direction;
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
