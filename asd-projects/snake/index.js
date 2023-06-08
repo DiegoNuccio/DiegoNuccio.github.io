@@ -140,7 +140,7 @@ function checkForNewDirection(event) {
   perpendicular to the current direction
   */
 
-  if (activeKey === KEY.LEFT && snake.head.direction != "right") { 
+  if (activeKey === KEY.LEFT && snake.head.direction != "right") { //I completed the bonus [it was actuall really easy to do]
     snake.head.direction = "left"; 
   }
   else if (activeKey === KEY.RIGHT && snake.head.direction != "left") { 
