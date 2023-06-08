@@ -93,7 +93,7 @@ function moveSnake() {
     var nextSnakeSquare = snake.body[i + 1];
     var nextRow = snakeSquare.row + 1;
     var nextColumn = snakeSquare.column + 1;
-    var nextDirection = snake.body.direction;
+    var nextDirection = snakeSquare.body.direction;
     
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
