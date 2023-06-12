@@ -15,7 +15,7 @@ function runProgram() {
     UP: 38,
     RIGHT: 39,
     DOWN: 40,
-    //This stores each of the number values of the WASD keys
+    //This stores each of the key name values of the WASD keys
     WKEY: "w",
     AKEY: "a",
     SKEY: "s",
