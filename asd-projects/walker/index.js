@@ -168,13 +168,23 @@ function runProgram() {
     walker2.css("left", positionX2);
     walker2.css("top", positionY2);
 
-    if (tagged === 1) {
+    if (positionX === positionX2 && positionY === positionY2) {
+      //This checks for the positioning of the players if they are the same if swaps the tagged player number
+      if (tagged === 1) {
+        tagged = 2;
+      }
+      else if (tagged === 2) {
+        tagged = 1;
+      }
+    }
+
+    if (tagged === 1) { //This funny section checks the tagged player number and sets the color to the proper values
       walker.css("background-color", "red");
       walker2.css("background-color", "navy");
     }
     else if (tagged === 2) {
       walker.css("background-color", "teal");
-      walker2.css("background-color", "red");
+      walker2.css("background-color", "maroon");
     }
   }
 
