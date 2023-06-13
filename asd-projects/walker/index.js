@@ -186,9 +186,9 @@ function runProgram() {
     player2.x2 = player2.x + walker2.css("width");
     player2.y2 = player2.y + walker2.css("height");
     //console.log(player1.x);
-    if (player1.x < player2.x2 && player1.x2 > player2.x &&
-      player1.y < player2.y2 && player1.y2 > player2.y) {
+    if (player1.x < player2.x2 && player1.x2 > player2.x && player1.y < player2.y2 && player1.y2 > player2.y) {
       //This utilizes the two player objects from the start to see if they are interacting with each other
+      //Currently doing the same as beforehand will fix later.
       if (tagged === 1) {
         tagged = 2;
       }
