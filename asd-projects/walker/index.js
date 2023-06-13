@@ -31,6 +31,12 @@ function runProgram() {
   var positionY2 = 200; // the y-coordinate location for the walker
   var speedY2 = 0; // the speed for the walker along the y-axis
 
+  var player1 = {
+    //The two player objects here are the locations and box size this will be used for proper hitbox detection
+  }
+
+  var player2 = {
+  }
   var wallLeft = 0;
   var wallTop = 0;
   var wallBottom = 390;
@@ -164,12 +170,25 @@ function runProgram() {
   function redrawGameItem() {
     walker.css("left", positionX); //This function draws or puts the walkers [players] on the new positionX/Y
     walker.css("top", positionY);
-
+    //This was placed here for the player objects so they are constantly updated and not 1 value
+    player1.id = "#walker";
+    player1.x = walker.css("left");
+    player1.y = walker.css("top");
+    player1.x2 = player1.x + walker.css("width");
+    player1.y2 = player1.y + walker.css("height");
+    //------------------------------------------------Felt cluttered
     walker2.css("left", positionX2);
     walker2.css("top", positionY2);
-
-    if (positionX === positionX2 && positionY === positionY2) {
-      //This checks for the positioning of the players if they are the same if swaps the tagged player number
+    //Same as player1
+    player2.id = "#walker";
+    player2.x = walker2.css("left");
+    player2.y = walker2.css("top");
+    player2.x2 = player2.x + walker2.css("width");
+    player2.y2 = player2.y + walker2.css("height");
+    //console.log(player1.x);
+    if (player1.x < player2.x2 && player1.x2 > player2.x &&
+      player1.y < player2.y2 && player1.y2 > player2.y) {
+      //This utilizes the two player objects from the start to see if they are interacting with each other
       if (tagged === 1) {
         tagged = 2;
       }
@@ -177,7 +196,7 @@ function runProgram() {
         tagged = 1;
       }
     }
-
+    console.log(tagged);
     if (tagged === 1) { //This funny section checks the tagged player number and sets the color to the proper values
       walker.css("background-color", "red");
       walker2.css("background-color", "navy");
