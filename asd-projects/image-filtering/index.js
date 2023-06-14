@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
+  applyFilter();
   
 
   // do not change the below line of code
@@ -32,7 +32,20 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-
+function applyFilter() {//This applies a filter to the image
+  for (var r = 0; r < image.length; r++) {
+    for (var c = 0; c < image[r].length; c++) {
+      var rgbString = image[r][c];//This with the two for loops gets the current pixel on the image
+      console.log(rgbString);
+      var rgbNumbers = rgbStringToArray(rgbString);//This turns the specific pixel selected into a color from the image
+      rgbNumbers[RED] = 255;//These values edit the coloration of the original image
+      rgbNumbers[GREEN];
+      rgbNumbers[BLUE];
+      rgbString = rgbArrayToString(rgbNumbers);//This turns the edited color from RGBNumbers to a string
+      image[r][c] = rgbString;//This sets the specified pixel to the coloration of the string
+    }
+  }
+}
 
 // TODO 7: Create the applyFilterNoBackground function
 
@@ -41,7 +54,9 @@ function applyAndRender() {
 
 
 // TODO 3: Create reddify function
-
+function reddify(argArray) {
+  argArray[RED] = 200; //When called it should change the coloration of the image to red [assumption]
+}
 
 // TODO 6: Create more filter functions
 
