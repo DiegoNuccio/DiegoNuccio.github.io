@@ -31,6 +31,8 @@ function runProgram() {
   var positionY2 = 200; // the y-coordinate location for the walker
   var speedY2 = 0; // the speed for the walker along the y-axis
 
+  var tagging = true; //This will be used for if they can tag or not
+
   var player1 = {
     //The two player objects here are the locations and box size this will be used for proper hitbox detection
   }
@@ -172,8 +174,8 @@ function runProgram() {
     walker.css("top", positionY);
     //This was placed here for the player objects so they are constantly updated and not 1 value
     player1.id = "#walker";
-    player1.x = walker.css("left");
-    player1.y = walker.css("top");
+    player1.x = parseFloat(walker.css("left"));
+    player1.y = parseFloat(walker.css("top"));
     player1.x2 = player1.x + walker.width();
     player1.y2 = player1.y + walker.height();
     //------------------------------------------------Felt cluttered
@@ -181,19 +183,27 @@ function runProgram() {
     walker2.css("top", positionY2);
     //Same as player1
     player2.id = "#walker";
-    player2.x = walker2.css("left");
-    player2.y = walker2.css("top");
+    player2.x = parseFloat(walker2.css("left"));
+    player2.y = parseFloat(walker2.css("top"));
     player2.x2 = player2.x + walker2.width();
     player2.y2 = player2.y + walker2.height();
     //console.log(player1.x);
-    if (player1.x < player2.x2 && player1.x2 > player2.x && player1.y < player2.y2 && player1.y2 > player2.y) {
+    if (player1.x < player2.x2 && player1.x2 > player2.x && player1.y < player2.y2 && player1.y2 > player2.y && tagging ===true) {
       //This utilizes the two player objects from the start to see if they are interacting with each other
       //Currently doing the same as beforehand will fix later.
       if (tagged === 1) {
         tagged = 2;
+        tagging = false;
+        setTimeout(() => {
+          tagging = true;
+        }, 1000);
       }
       else if (tagged === 2) {
         tagged = 1;
+        tagging = false;
+        setTimeout(() => {
+          tagging = true;
+        }, 1000);
       }
     }
     //console.log(tagged);
