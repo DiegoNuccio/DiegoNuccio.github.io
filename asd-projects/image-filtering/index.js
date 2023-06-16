@@ -66,7 +66,7 @@ function applyFilterNoBackground(filterFunction) {//This applies a filter to the
 function keepInBounds(numb) {
   var colormax = 255; //The highest color value for rgb values
   return Math.min(numb, colormax) < 255 && Math.max(numb, colormax) >= 0 && Math.min(numb, colormax) >= 0 ? numb : colormax;
-}
+}//Math.min(numb, colormax) >= 0 [Last conditional] causes an odd effect with the other functions. But its a nice effect.
 
 // TODO 3: Create reddify function
 function reddify(argArray) {
