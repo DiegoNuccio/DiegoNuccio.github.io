@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>JS Bin</title>
+    <title>Dodging Showcase</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style>
         #background {
@@ -41,15 +41,19 @@
     </div>
 
     <script>
-        var playerval = 0;
+        var playerY = 0;
         $(".upbut").on("click", function () {
-            if (playerval === 0) {
+            if (playerY > 0) {
                 $(".debug").text("Up!")
+                playerY -= 5;
+                $("#player").css("top", playerY)
             }
         })
         $(".downbut").on("click", function () {
-            if (playerval === 0) {
+            if (playerY >= 0) {
                 $(".debug").text("Down!")
+                playerY += 5;
+                $("#player").css("top", playerY)
             }
         })
     </script>
