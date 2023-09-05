@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Dodging Showcase</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="testgame.js"></script>
     <style>
         #background {
             height: 620px;
@@ -25,6 +26,9 @@
             border: 10px solid rgb(255, 0, 0);
             border-radius: 10px;
         }
+        .debug {
+            color:rgb(255, 0, 0);
+        }
     </style>
 </head>
 
@@ -41,6 +45,10 @@
     </div>
 
     <script>
+        var KEYS = {
+            UP: 38,
+            DOWN : 40,
+        }
         var playerY = 0;
         $(".upbut").on("click", function () {
             if (playerY > 0) {
@@ -52,6 +60,17 @@
         $(".downbut").on("click", function () {
             if (playerY >= 0) {
                 $(".debug").text("Down!")
+                playerY += 5;
+                $("#player").css("top", playerY)
+            }
+        })
+
+        $(document).on("keydown", function(event) {
+            if (event.which === KEYS.UP && playerY > 0) {
+                playerY -= 5;
+                $("#player").css("top", playerY)
+            }
+            if (event.which === KEYS.DOWN && playerY >= 0) {
                 playerY += 5;
                 $("#player").css("top", playerY)
             }
